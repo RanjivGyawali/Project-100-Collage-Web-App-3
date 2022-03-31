@@ -2,20 +2,21 @@ var SpeechRecognition = window.webkitSpeechRecognition;
 var Content;
 var recognition = new SpeechRecognition();
 
-function start() {
-    document.getElementById("textbox").innerHTML = "";
+function start() 
+{
     recognition.start();
 }
+
 recognition.onresult = function (event) {
+
     console.log(event);
+    
     var Content = event.results[0][0].transcript.toLowerCase();
-    document.getElementById("textbox").innerHTML = Content;
     console.log(Content);
     if (Content == "selfie") {
         speak();
     }
 }
-
 
 camera = document.getElementById("camera");
 Webcam.set({
